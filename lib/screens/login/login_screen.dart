@@ -73,12 +73,12 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Container(
         constraints: BoxConstraints.expand(),
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //       image: AssetImage(
-        //           "../../assets/background_images/login_background.jpeg"),
-        //       fit: BoxFit.cover),
-        // ),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                  "assets/background_images/login_background.jpeg"),
+              fit: BoxFit.cover),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
