@@ -12,6 +12,8 @@ class AlarmScreen extends StatelessWidget {
         title: Text(MyApp.app_name),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ElevatedButton.icon(
             icon: FaIcon(
@@ -28,9 +30,7 @@ class AlarmScreen extends StatelessWidget {
     );
   }
 
-  void scheduleAlarm(
-      // DateTime scheduledNotificationDateTime, AlarmInfo alarmInfo
-      ) async {
+  void scheduleAlarm() async {
     var scheduledNotificationDateTime =
         DateTime.now().add(Duration(seconds: 5));
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:itsmushi/app_states/google_sign_in.dart';
 import 'package:itsmushi/app_states/user.dart';
 import 'package:itsmushi/screens/alarm/alarm_screen.dart';
+import 'package:itsmushi/screens/contact/contact_screen.dart';
 import 'package:itsmushi/screens/home/home_screen.dart';
 import 'package:itsmushi/screens/login/login_screen.dart';
 import 'package:provider/provider.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
           LoginScreen.routeName: (_) => LoginScreen(),
           HomeScreen.route_name: (_) => HomeScreen(),
           AlarmScreen.route_name: (_) => AlarmScreen(),
+          ContactScreen.route_name: (_) => ContactScreen(),
         },
       ),
     );
@@ -92,6 +94,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   {Navigator.of(context).pushNamed(AlarmScreen.route_name)},
               child: Text("go to Notification"),
             ),
+            ElevatedButton(
+              onPressed: () =>
+                  {Navigator.of(context).pushNamed(ContactScreen.route_name)},
+              child: Text("Add Contact to local Database"),
+            ),
+            
           ],
         ),
       ),
