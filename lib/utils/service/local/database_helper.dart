@@ -21,9 +21,11 @@ class DatabaseHelper {
     return _database;
   }
 
+  
+
   Future<Database> initializeDatabase() async {
     var dir = await getDatabasesPath();
-    var path = dir + "mydb2.db";
+    var path = dir + "mydb.db";
 
     var database = openDatabase(
       path,
@@ -39,8 +41,6 @@ class DatabaseHelper {
       },
     );
 
- 
-
     print("iscreatedreal");
     return database;
   }
@@ -50,4 +50,5 @@ class DatabaseHelper {
     var result = await db!.insert(table_name, contactModel.toJson());
     print("result : $result");
   }
+
 }

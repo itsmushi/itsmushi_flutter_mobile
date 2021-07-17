@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itsmushi/main.dart';
 import 'package:itsmushi/models/contact.dart';
-import 'package:itsmushi/models/database_helper.dart';
+import 'package:itsmushi/utils/service/local/database_helper.dart';
 
 class ContactScreen extends StatelessWidget {
   static String route_name = "contact_screen";

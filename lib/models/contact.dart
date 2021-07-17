@@ -11,7 +11,6 @@ class ContactModel {
         required this.number,
     });
 
-  
 
     factory ContactModel.fromJson(Map<String, dynamic> json) => ContactModel(
         
