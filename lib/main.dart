@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 import 'package:itsmushi/app_states/google_sign_in.dart';
 import 'package:itsmushi/app_states/user.dart';
@@ -13,6 +15,8 @@ import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -44,7 +48,22 @@ void main() async {
 
 //end device orientations
 
+
+//for alarm manager
+final int helloAlarmID = 0;
+  await AndroidAlarmManager.initialize();
+   await AndroidAlarmManager.periodic(const Duration(seconds: 4), helloAlarmID, printHello);
+
+//end
+
+
   runApp(MyApp());
+}
+
+void printHello() {
+  final DateTime now = DateTime.now();
+  final int isolateId = Isolate.current.hashCode;
+  print("[$now] Hello, world! isolate=${isolateId} function='$printHello'");
 }
 
 class MyApp extends StatelessWidget {
