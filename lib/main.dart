@@ -5,6 +5,7 @@ import 'package:itsmushi/screens/alarm/alarm_screen.dart';
 import 'package:itsmushi/screens/contact/contact_screen.dart';
 import 'package:itsmushi/screens/home/home_screen.dart';
 import 'package:itsmushi/screens/login/login_screen.dart';
+import 'package:itsmushi/screens/sms/send_message_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter/services.dart';
@@ -20,9 +21,9 @@ void main() async {
   //this just binds stuffs together
   WidgetsFlutterBinding.ensureInitialized();
 
-//for firebase  
+//for firebase
   await Firebase.initializeApp();
-//end firebase 
+//end firebase
 
 //for notifiations
   const AndroidInitializationSettings initializationSettingsAndroid =
@@ -37,12 +38,10 @@ void main() async {
               (int id, String? title, String? body, String? payload) async {});
 //end notifications settings
 
-
-
 // //sets device orientations
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
-    
+
 //end device orientations
 
   runApp(MyApp());
@@ -75,6 +74,7 @@ class MyApp extends StatelessWidget {
           HomeScreen.route_name: (_) => HomeScreen(),
           AlarmScreen.route_name: (_) => AlarmScreen(),
           ContactScreen.route_name: (_) => ContactScreen(),
+          SendMessage.route_name: (_) => SendMessage(),
         },
       ),
     );
@@ -116,6 +116,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   {Navigator.of(context).pushNamed(ContactScreen.route_name)},
               child: Text("Add Contact to local Database"),
             ),
+            ElevatedButton(
+              onPressed: () =>
+                  {Navigator.of(context).pushNamed(SendMessage.route_name)},
+              child: Text("Send Message Screen"),
+            )
           ],
         ),
       ),
