@@ -3,14 +3,14 @@ import 'package:itsmushi/models/contact.dart';
 
 class Contacts with ChangeNotifier {
   //initiator
-  List<ContactModel> _contacts;
+  // List<ContactModel> _contacts;
 
   //selector
-  List<ContactModel> get contacts => _contacts;
+  // List<ContactModel> get contacts => _contacts;
 
   //reducer
   Future getContacts() async{
-    _contacts=await Co
+    // _contacts=await Co
   }
 
 }

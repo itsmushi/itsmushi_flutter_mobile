@@ -7,6 +7,8 @@ import 'package:itsmushi/screens/home/home_screen.dart';
 import 'package:itsmushi/screens/login/login_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flutter/services.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -15,9 +17,14 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void main() async {
+  //this just binds stuffs together
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
 
+//for firebase  
+  await Firebase.initializeApp();
+//end firebase 
+
+//for notifiations
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('app_icon');
 
@@ -28,6 +35,15 @@ void main() async {
           requestSoundPermission: false,
           onDidReceiveLocalNotification:
               (int id, String? title, String? body, String? payload) async {});
+//end notifications settings
+
+
+
+// //sets device orientations
+//   SystemChrome.setPreferredOrientations(
+//       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+    
+//end device orientations
 
   runApp(MyApp());
 }
@@ -47,6 +63,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: MyApp.app_name,
         theme: ThemeData(
           primarySwatch: Colors.amber,
@@ -99,7 +116,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   {Navigator.of(context).pushNamed(ContactScreen.route_name)},
               child: Text("Add Contact to local Database"),
             ),
-            
           ],
         ),
       ),
