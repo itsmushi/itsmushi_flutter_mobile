@@ -38,9 +38,31 @@ dependencies:
   telephony: ^0.1.4
   android_alarm_manager_plus: ^1.0.2
 
+  
+  
+    
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_native_splash: ^1.1.8+4
+
+  # this are settings for the splash screen
+flutter_native_splash:
+  color: "#d1dce3"
+  #background_image: "assets/background.png"
+  
+ 
+
+  # The image parameter allows you to specify an image used in the splash screen.  It must be a png file.  
+  image: assets/splash.png
+  # The android, ios and web parameters can be used to disable generating a splash screen on a given platform.
+  android: true
+  ios: true
+  #web: false
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
